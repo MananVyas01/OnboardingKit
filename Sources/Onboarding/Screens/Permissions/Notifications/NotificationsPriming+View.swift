@@ -25,7 +25,7 @@ extension NotificationsPriming: View {
 
     private func footer() -> some View {
         VStack(spacing: 20) {
-            Button(action: config.allowAction) {
+            Button(action: requestAuthorizationAndProceed) {
                 Text(config.allowButtonTitle, bundle: config.bundle)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
