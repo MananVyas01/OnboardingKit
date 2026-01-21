@@ -97,7 +97,7 @@ public struct NotificationsPriming {
     }
 
     func onAppear() {
-        Animation.welcomeScreen.deferred {
+        Animation.notification.deferred {
             isAnimating = true
         }
     }

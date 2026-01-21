@@ -10,20 +10,24 @@ import SwiftUI
 extension NotificationsPriming: View {
     public var body: some View {
         ScrollView {
-            VStack(spacing: 28) {
-                devicePreview
-                copySection
-            }
-            .padding(20)
+            devicePreview
+                .padding(20)
         }
         .scrollIndicators(.hidden)
-        .safeAreaInset(edge: .bottom, content: footer)
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 40) {
+                copySection
+                    .padding(.horizontal, 20)
+
+                footer
+            }
+        }
         .background(.background.secondary)
         .onAppear(perform: onAppear)
         .dynamicTypeSize(.xSmall ... .xxxLarge)
     }
 
-    private func footer() -> some View {
+    private var footer: some View {
         VStack(spacing: 20) {
             Button(action: requestAuthorizationAndProceed) {
                 Text(config.allowButtonTitle, bundle: config.bundle)
